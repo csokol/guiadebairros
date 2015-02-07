@@ -112,7 +112,7 @@
 									<li>
                                         Trânsito
                                         <div id="stars-traffic" class="star-blur">
-                                            <tags:stars score="${location.trafficScore}"/>
+                                            <tags:trafficScore score="${location.trafficScore}"/>
                                         </div>
                                     </li>
 									<li>
@@ -130,7 +130,7 @@
 									<li>
                                         Custo de vida
                                         <div id="stars-cost" class="star-blur">
-                                            <tags:stars score="${location.costOfLifeScore}"/>
+                                            <tags:moneyScore score="${location.costOfLifeScore}"/>
                                         </div>
                                     </li>
 								</ul>

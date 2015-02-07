@@ -71,6 +71,14 @@
             p {
             	margin: 50px 0 5px 0;
             }
+
+            .icon-cab, .icon-money {
+                color: #e5e5e5;
+            }
+
+            .icon-active {
+                color: #777;
+            }
         </style>
 	</head>
 	<body>
@@ -105,7 +113,7 @@
                                     --><div data-name="evaluation.trafficScore"  class="star-field">
                                         <label>Trânsito</label>
                                         <c:forEach begin="1" end="5">
-                                            <i class="icon-star-empty"></i>
+                                            <i class="icon-cab"></i>
                                         </c:forEach>
                                     </div><!--
                                     --><div data-name="evaluation.amusementScore" class="star-field">
@@ -123,7 +131,7 @@
                                     --><div data-name="evaluation.costOfLifeScore" class="star-field">
                                         <label>Custo de vida</label>
                                         <c:forEach begin="1" end="5">
-                                            <i class="icon-star-empty"></i>
+                                            <i class="icon-money"></i>
                                         </c:forEach>
                                     </div>
                                     
@@ -243,6 +251,74 @@
                     .attr("value", l+1)
                     .attr("name", name));
         });
+
+
+        var leave = $(".icon-cab, .icon-money").mouseenter(function() {
+            var star = $(this);
+            var previous = star.prevAll();
+
+            previous.filter("i")
+                    .css("color", "none")
+                    .removeClass("icon-inactive")
+                    .addClass("icon-active");
+            star.removeClass("icon-inactive")
+                    .css("color", "none")
+                    .addClass("icon-active");
+            if (previous.length > 3) {
+                previous.filter("i").css("color", "#f44336");
+                star.css("color", "#f44336");
+            } else if (previous.length >= 3) {
+                previous.filter("i").css("color", "#D0D051");
+                star.css("color", "#D0D051");
+            } else if (previous.length <= 2) {
+                previous.filter("i").css("color", "#67f47c");
+                star.css("color", "#67f47c");
+            }
+        }).mouseleave(function() {
+            var star = $(this);
+            star.prevAll()
+                    .filter("i")
+                    .css("color", "#e5e5e5")
+                    .removeClass("icon-active")
+                    .addClass("icon-inactive");
+            star.removeClass("icon-active")
+                    .css("color", "#e5e5e5")
+                    .addClass("icon-inactive");
+        });
+
+        $(".icon-cab, .icon-money").click(function() {
+            var star = $(this);
+            var previous = star.prevAll();
+
+            previous.filter("i")
+                    .css("color", "none")
+                    .removeClass("icon-inactive")
+                    .addClass("icon-active");
+            star.removeClass("icon-inactive")
+                    .css("color", "none")
+                    .addClass("icon-active");
+            if (previous.length > 3) {
+                previous.filter("i").css("color", "#f44336");
+                star.css("color", "#f44336");
+            } else if (previous.length >= 3) {
+                previous.filter("i").css("color", "#D0D051");
+                star.css("color", "#D0D051");
+            } else if (previous.length < 2) {
+                previous.filter("i").css("color", "#67f47c");
+                star.css("color", "#67f47c");
+            }
+            star.parent().find("i").off();
+            var stars = star.prevAll()
+                    .filter("i");
+            var l = stars.length;
+            var name = star.parent().data("name");
+            star.parent().append($("<input type='hidden'>")
+                    .attr("value", l+1)
+                    .attr("name", name));
+        });
+
+
+
     </script>
     <script src="/js/signup.js"></script>
 	</body>
