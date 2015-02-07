@@ -20,6 +20,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.guiadebairros.model.Comment;
 import br.com.guiadebairros.model.Evaluation;
 import br.com.guiadebairros.model.Evaluation.Subject;
 import br.com.guiadebairros.model.Location;
@@ -93,11 +94,13 @@ public class LocationController {
 	
 	
 	@Post("/evaluate/{id}")
-	public void add(String id, Evaluation evaluation, List<Opinion> opinions) {
+	public void add(String id, Evaluation evaluation, List<Opinion> opinions, Comment comment) {
 	    evaluation.setOpinion(this.assembleOpinionMap(opinions));
 	    this.locationService.add(id, evaluation);
+	    comment.setLocationId(id);
+	    this.template.save(comment);
 	    this.session.setAttribute("canRead", true);
-	    this.result.redirectTo(DetailController.class).detail((String)this.session.getAttribute("desiredLocationId"));
+	    this.result.redirectTo(DetailController.class).detail((String)this.session.getAttribute("desiredLocationUrl"));
 	}
 	
 	@Get("/clean")

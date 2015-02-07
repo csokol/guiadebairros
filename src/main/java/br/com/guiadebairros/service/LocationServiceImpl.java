@@ -44,4 +44,10 @@ public class LocationServiceImpl implements LocationService {
 	return this.repository.getAll();
     }
 
+
+    @Override
+    public Location getByUrl(String url) {
+	return this.repository.getByUrl(url);
+    }
+
 }

@@ -13,6 +13,8 @@ public interface LocationService {
     
     Location get(String id);
     
+    Location getByUrl(String url);
+    
     Set<Location> getAll();
     
 }

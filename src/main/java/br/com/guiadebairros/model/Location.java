@@ -17,10 +17,19 @@ public class Location {
     private String name;
     private String description;
     private Set<String> searchableNames = new HashSet<>();
+    private String url;
+    private String imagePath = "/images/vila_madalena.jpg";
     
     private List<Evaluation> evaluations;
-    
-    private enum Feature {
+
+	public void setImagePath() {
+		this.imagePath = "/images/" + name.replace(" ", "_")
+				.replace("ã", "a")
+				.replace("ú", "u")
+				.toLowerCase() + ".jpg";
+	}
+
+	private enum Feature {
 	SECURITY,
 	PUBLIC_TRANSPORTATION,
         AMENITIES,
@@ -189,4 +198,15 @@ public class Location {
 	return this.getRate(Subject.GOOD_ASPHALT);
     }     
     
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public String getUrl() {
+	    return url;
+	}
+
+	public void setUrl(String url) {
+	    this.url = url;
+	}
 }

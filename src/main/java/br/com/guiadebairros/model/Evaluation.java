@@ -89,5 +89,4 @@ public class Evaluation {
     public void setOpinion(Map<Subject, Object> opinion) {
 	this.opinion = opinion;
     }
-    
 }

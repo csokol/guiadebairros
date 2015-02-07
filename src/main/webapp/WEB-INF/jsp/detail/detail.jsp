@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib tagdir="/WEB-INF/tags" prefix="tags" %>
 <!DOCTYPE HTML>
 <!--
 	Read Only by HTML5 UP
@@ -25,32 +26,53 @@
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+        <link rel="stylesheet" href="/fontello/css/fontello.css">
         <style>
             #wrapper {
                 padding: 0;
             }
             #one:before {
-                background-image: url("/images/vila_madalena.jpg");
+                background-image: url("${location.imagePath}");
                 background-position: center;
             }
             <c:if test="${not canRead}">
-            .blurry-text {
+            .blurry-text, .blurry-text p {
 			   color: transparent;
-			   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+			   text-shadow: 0 0 8px rgba(0,0,0,0.5);
 			}
-			
+
 			.star-blur {
 				filter: blur(3px);
 			}
+
+            strong {
+                color: transparent;
+            }
+            .feature-icons li {
+                color: #888;
+                text-shadow: 0 0 0px;
+            }
+            .feature-icons div {
+                color: transparent;
+                text-shadow: 0 0 8px rgba(0,0,0,0.5);
+            }
 			</c:if>
 			#bottom {
 			   position:fixed;
 			   left:0px;
 			   bottom:0px;
-			   height:70px;
 			   width:100%;
 			   background: #f44336;
 			}
+            .low-score {
+                color: #f44336;
+            }
+            .high-score {
+                color: #67f47c;
+            }
+            .regular-score {
+                color: #D0D051;
+            }
         </style>
 	</head>
 	<body>
@@ -65,28 +87,57 @@
 								<header class="major">
 									<h2>${location.name}</h2>
 								</header>
-								<p id="main-rating"></p>
+                                <tags:stars canRead="true" score="${location.overallScore}"/>
 								<p>${location.description}</p>
 							</div>
 						</section>
 
-					<c:if test="${canRead}">
 					<!-- Two -->
-						<section id="two">
+						<section id="two"  class="blurry-text">
 							<div class="container">
 								<h3>Como vai a quebrada?</h3>
 								<ul class="feature-icons">
-									<li>Segurança <div id="stars-security" class="star-blur"></div></li>
-									<li>Transporte público <div id="stars-transport" class="star-blur"></div></li>
-									<li>Trânsito <div id="stars-traffic" class="star-blur"></div></li>
-									<li>Lazer <div id="stars-fun" class="star-blur"></div></li>
-									<li>Conveniência <div id="stars-convenience" class="star-blur"></div></li>
-									<li>Custo de vida <div id="stars-cost" class="star-blur"></div></li>
+									<li>
+                                        Segurança
+                                        <div id="stars-security" class="star-blur">
+                                            <tags:stars score="${location.securityScore}"/>
+                                        </div>
+                                    </li>
+									<li>
+                                        Transporte público
+                                        <div id="stars-transport" class="star-blur">
+                                            <tags:stars score="${location.publicTransportationScore}"/>
+                                        </div>
+                                    </li>
+									<li>
+                                        Trânsito
+                                        <div id="stars-traffic" class="star-blur">
+                                            <tags:stars score="${location.trafficScore}"/>
+                                        </div>
+                                    </li>
+									<li>
+                                        Lazer
+                                        <div id="stars-fun" class="star-blur">
+                                            <tags:stars score="${location.amusementScore}"/>
+                                        </div>
+                                    </li>
+									<li>
+                                        Conveniência
+                                        <div id="stars-convenience" class="star-blur">
+                                            <tags:stars score="${location.amenitiesScore}"/>
+                                        </div>
+                                    </li>
+									<li>
+                                        Custo de vida
+                                        <div id="stars-cost" class="star-blur">
+                                            <tags:stars score="${location.costOfLifeScore}"/>
+                                        </div>
+                                    </li>
 								</ul>
 							</div>
 						</section>
 						
-						<section id="four">
+						<section  class="blurry-text" id="four">
 							<div class="container">
 								<h2>Segurança</h2>
 								<p><strong>${location.feelSafeRate}%</strong> das pessoas se sentem seguras andando nas ruas do bairro.</p>
@@ -103,55 +154,25 @@
 						</section>
 
 					<!-- Three -->
-						<section id="three">
-							<div class="container">
-								<h3>O que os truta axa?</h3>
-								<div class="features">
-									<article>
-										<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-										<div class="inner">
-											<h4>Juca Chaves</h4>
-											<p class="blurry-text">Sempre sou assaltado, mas mesmo assim gosto do lugar.</p>
-										</div>
-									</article>
-									<article>
-										<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-										<div class="inner">
-											<h4>Juquinha</h4>
-											<p class="blurry-text">Bom, mas é ruim ao mesmo tempo.</p>
-										</div>
-									</article>
-									<article>
-										<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-										<div class="inner">
-											<h4>João</h4>
-											<p class="blurry-text">EU GOSTO MUITO DESSE LUGAR SOU FELIZ MINHA CASA É LEGAL EU GOSTO DE AÇAI E O GOVERNO NAO AJUDA EBA</p>
-										</div>
-									</article>
-									<article>
-										<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-										<div class="inner">
-											<h4>Senhor barriga</h4>
-											<p class="blurry-text">Eu sempre sonhava em morar na Vila, mas depois eu vi que é uma m**** quando tem carnaval ou festa na Vila, pq o bairro fica lotado de gente porca mijando pra tudo qto é lado e fica impossível sair ou entrar no bairro. E nos finais de semana o trânsito também fica horrível. Eu gosto dos bares próximos, mas viver na Vila é f***.</p>
-										</div>
-									</article>
-									<article>
-										<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-										<div class="inner">
-											<h4>Seu Madruga</h4>
-											<p class="blurry-text">o ruim de morar na vila é que não dá para ir a pé, já que o bairro tem muito morro. então se voce nao mora perto de um ponto de onibus ou do metro, fica muito ruim para ir para outros lugares. fora isso, o bairro eh show</p>
-										</div>
-									</article>
-									<article>
-										<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-										<div class="inner">
-											<h4>Bruno Diaz</h4>
-											<p class="blurry-text">Acho que a Vila Madalena pode melhorar, mas ainda é um dos melhores bairros para morar em São Paulo. Eu acho que o trânsito é OK e eu moro perto do metrô, então consigo ir para todos os lados bem fácil. Acho que para todo mundo que quer morar em algum lugar divertido, a Vila Madalena é a melhor opção. Graças a deus eu nunca sofri assalto, então pelo menos tem isso né </p>
-										</div>
-									</article>
+					
+						<c:if test="${not empty comments}">
+							<section  class="blurry-text" id="three">
+								<div class="container">
+									<h3>Comentários sobre o bairro:</h3>
+									<div class="features">
+										<c:forEach items="${comments}" var="comment">
+											<article>
+												<div class="inner">
+													<h4>${comment.author}</h4>
+													<p class="blurry-text">${comment.text}</p>
+												</div>
+											</article>
+										</c:forEach>
+									</div>
 								</div>
-							</div>
-						</section>
+							</section>
+							<br/>
+							<br/>
 						</c:if>
 				</div>
 
@@ -162,7 +183,7 @@
 					<a href="/detail/signup" style="font-size: 30px; color: #fff;">Avalie um bairro para poder visualizar as informações deste!</a>
 					</c:if>
 					<c:if test="${canRead}">
-					<a href="/detail/signup" style="font-size: 30px; color: #fff;">Avalie um bairro!</a>
+					<a href="/detail/signup" style="font-size: 30px; color: #fff;">Avalie outro bairro! =)</a>
 					</c:if>					
 				</div>
 			</section>
@@ -170,21 +191,21 @@
 	</body>
 
 	<script>
-    $('#main-rating').raty({ path: '/images', readOnly: true, score: ${location.overallScore} });
-    $('#stars-security').raty({ path: '/images', readOnly: true, score: ${location.securityScore} });
-    $('#stars-transport').raty({ path: '/images', readOnly: true, score: ${location.publicTransportationScore} });
-    $('#stars-traffic').raty({ path: '/images', readOnly: true, score: ${location.trafficScore} });
-    $('#stars-fun').raty({ path: '/images', readOnly: true, score: ${location.amusementScore} });
-    $('#stars-convenience').raty({ path: '/images', readOnly: true, score: ${location.amenitiesScore} });
-    $('#stars-cost').raty({ path: '/images', readOnly: true, score: ${location.costOfLifeScore} });
+    <%--$('#main-rating').raty({ path: '/images', readOnly: true, score: ${location.overallScore} });--%>
+    <%--$('#stars-security').raty({ path: '/images', readOnly: true, score: ${location.securityScore} });--%>
+    <%--$('#stars-transport').raty({ path: '/images', readOnly: true, score: ${location.publicTransportationScore} });--%>
+    <%--$('#stars-traffic').raty({ path: '/images', readOnly: true, score: ${location.trafficScore} });--%>
+    <%--$('#stars-fun').raty({ path: '/images', readOnly: true, score: ${location.amusementScore} });--%>
+    <%--$('#stars-convenience').raty({ path: '/images', readOnly: true, score: ${location.amenitiesScore} });--%>
+    <%--$('#stars-cost').raty({ path: '/images', readOnly: true, score: ${location.costOfLifeScore} });--%>
     
     <c:if test="${not canRead}">
-	    $('#stars-security').raty({ path: '/images', readOnly: true, score: 5 });
-	    $('#stars-transport').raty({ path: '/images', readOnly: true, score: 5 });
-	    $('#stars-traffic').raty({ path: '/images', readOnly: true, score: 5 });
-	    $('#stars-fun').raty({ path: '/images', readOnly: true, score: 5 });
-	    $('#stars-convenience').raty({ path: '/images', readOnly: true, score: 5 });
-	    $('#stars-cost').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-security').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-transport').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-traffic').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-fun').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-convenience').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-cost').raty({ path: '/images', readOnly: true, score: 5 });
 	</c:if>	    
 </script>
 </html>

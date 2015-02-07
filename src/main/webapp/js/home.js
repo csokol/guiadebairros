@@ -2,7 +2,7 @@ var selectedLocation;
 
 $(".search-icon").click(function() {
         if (typeof(selectedLocation) !== 'undefined') {
-        	window.location.href= '/detail/' + selectedLocation.id;
+        	window.location.href= '/detail/' + selectedLocation.url + '/';
         }
     });
     
@@ -15,7 +15,7 @@ $(".search-icon").click(function() {
 			$.each($.parseJSON(response), function(i, item) {
 				suggestions.push({
 					value: item.name,
-					id: item.id,
+					url: item.url,
 				});
 			});
 			return {

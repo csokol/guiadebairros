@@ -31,6 +31,10 @@ public class LocationRepository {
     
     public Set<Location> suggestedLocationsFor(String query, Integer maxResults) {
 	return new HashSet<>(this.template.find(new Query(where("searchableNames").regex(query)).limit(maxResults), Location.class));
+    }
+    
+    public Location getByUrl(String url) {
+	return this.template.findOne(new Query(where("url").regex(url)), Location.class);
     }    
     
     public Location get(String id) {

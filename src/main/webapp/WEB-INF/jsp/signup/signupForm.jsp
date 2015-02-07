@@ -8,7 +8,7 @@
 -->
 <html>
 	<head>
-		<title>Read Only by HTML5 UP</title>
+		<title>Nova avaliação</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -179,6 +179,10 @@
 										<input type="radio" name="opinions[7].value" value="false" />
 										<label for="opinions[7].value">Não</label>
 										<input type="hidden" name="opinions[7].subject" value="IS_CLEAN"/>										
+                                    
+                                    <p>Deseja registrar algum comentário?</p>
+                                    <input type="text" name="comment.author" placeholder="Nome" />
+	                                <textarea placeholder="Comentário" name="comment.text" ></textarea>
                                     
                                     <br/>
                                     <div class="location-name  12u$" >
