@@ -1,8 +1,5 @@
 package br.com.guiadebairros;
 
-import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
-
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 

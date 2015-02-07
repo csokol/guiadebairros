@@ -1,5 +1,8 @@
 package br.com.guiadebairros.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Evaluation {
 //    private User user;
     private Integer securityScore;
@@ -9,12 +12,19 @@ public class Evaluation {
     private Integer trafficScore;
     private Integer costOfLifeScore;
     
-//    public User getUser() {
-//        return user;
-//    }
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    private Map<Subject, Object> opinion = new HashMap<>();
+    
+    public enum Subject {
+	FEEL_SAFE,
+	WALK,
+	IS_QUIET,
+	HAS_TREES,
+	IS_CLEAN,
+	HOW_LONG,
+	USE_PUBLIC_TRANSPORTATION,
+	GOOD_ASPHALT
+    }
+    
     public Integer getSecurityScore() {
         return securityScore;
     }
@@ -72,6 +82,12 @@ public class Evaluation {
     
     public Integer neverNull(Integer val) {
 	return val != null ? val : 0;
+    }
+    public Map<Subject, Object> getOpinion() {
+	return opinion;
+    }
+    public void setOpinion(Map<Subject, Object> opinion) {
+	this.opinion = opinion;
     }
     
 }

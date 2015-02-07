@@ -7,6 +7,8 @@ import java.util.Set;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.guiadebairros.model.Evaluation.Subject;
+
 @Document(collection = "locations")
 public class Location {
     
@@ -134,5 +136,57 @@ public class Location {
 	return Math.round(accumulator / evaluations.size());
     }
     
+    public Integer getFeelSafeRate() {
+	return getRate(Subject.FEEL_SAFE);
+    }
+    
+    private Integer getRate(Subject subject) {
+	if (this.evaluations == null || this.evaluations.isEmpty()) return 0;
+	
+	Integer accumulator = 0;
+	
+	for (Evaluation evaluation : this.evaluations) {
+	    if ((Boolean)evaluation.getOpinion().get(subject)) {
+		accumulator++;
+	    }
+	}
+	
+	return Math.round(100*accumulator/this.evaluations.size());
+    }
+
+    public Integer getWalkRate() {
+	return this.getRate(Subject.WALK);
+    }
+    
+    public Integer getIsQuietRate() {
+	return this.getRate(Subject.IS_QUIET);
+    }
+    
+    public Integer getHasTreesRate() {
+	return this.getRate(Subject.HAS_TREES);
+    }
+    
+    public Integer getIsCleanRate() {
+	return this.getRate(Subject.IS_CLEAN);
+    }    
+    
+    public Integer getAvgTimeToWork() {
+	if (this.evaluations == null || this.evaluations.isEmpty()) return 0;
+	
+	Integer accumulator = 0;
+	for (Evaluation evaluation : this.evaluations) {
+	    accumulator+= (Integer) evaluation.getOpinion().get(Subject.HOW_LONG);
+	}
+	
+	return Math.round(accumulator/this.evaluations.size());
+    }    
+    
+    public Integer getPublicTransportationRate() {
+	return this.getRate(Subject.USE_PUBLIC_TRANSPORTATION);
+    }
+    
+    public Integer getGoodAsphaltRate() {
+	return this.getRate(Subject.GOOD_ASPHALT);
+    }     
     
 }
