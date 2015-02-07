@@ -109,6 +109,11 @@
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div>
+                                    <div class="location-name  12u$">
+                                        <ul class="actions">
+                                            <li><input type="submit" value="Enviar" class="special" /></li>
+                                        </ul>
+                                    </div>
                                 </form>
                             </div>
 						</section>
