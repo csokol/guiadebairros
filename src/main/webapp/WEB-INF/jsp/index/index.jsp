@@ -29,50 +29,20 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <!-- Header -->
 <section id="header">
     <header class="major">
-        <h1>Highlights</h1>
-        <p>A fun little { responsive } single pager by <a href="http://html5up.net">HTML5 UP</a></p>
+        <h1>Vila do Chaves</h1>
     </header>
     <div class="container">
-        <ul class="actions">
-            <li><a href="#one" class="button special scrolly">Begin</a></li>
-        </ul>
-    </div>
-</section>
-
-<!-- One -->
-<section id="one" class="main special">
-    <div class="container">
-        <span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
-        <div class="content">
-            <header class="major">
-                <h2>Who I am</h2>
-            </header>
-            <p>Aliquam ante ac id. Adipiscing interdum lorem praesent fusce pellentesque arcu feugiat. Consequat sed ultricies rutrum. Sed adipiscing eu amet interdum lorem blandit vis ac commodo aliquet integer vulputate phasellus lorem ipsum dolor lorem magna consequat sed etiam adipiscing interdum.</p>
-        </div>
-        <a href="#two" class="goto-next scrolly">Next</a>
-    </div>
-</section>
-
-
-<!-- Footer -->
-<section id="footer">
-    <div class="container">
-        <header class="major">
-            <h2>Get in touch</h2>
-        </header>
-        <form method="post" action="#">
-            <div class="row uniform">
-                <div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-                <div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-                <div class="12u$"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
-                <div class="12u$">
-                    <ul class="actions">
-                        <li><input type="submit" value="Send Message" class="special" /></li>
-                    </ul>
-                </div>
-            </div>
+        <form action="search" method="post">
+            <input type="text" name="q" class="initial-search" placeholder="Encontre seu bairro dos sonhos" />
         </form>
+        <%--<ul class="actions">--%>
+            <%--<li><a href="#one" class="button special scrolly">Begin</a></li>--%>
+        <%--</ul>--%>
     </div>
+</section>
+
+
+<section id="footer">
     <footer>
         <ul class="icons">
             <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
