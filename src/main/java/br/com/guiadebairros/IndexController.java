@@ -9,7 +9,7 @@ import br.com.caelum.vraptor.Get;
 @Controller
 public class IndexController {
 
-    	@Inject private HttpSession session;
+    @Inject private HttpSession session;
     
 	@Get("/")
 	public void index() {

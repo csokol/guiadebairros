@@ -83,6 +83,22 @@
 								</ul>
 							</div>
 						</section>
+						
+						<section id="four">
+							<div class="container">
+								<h2>Segurança</h2>
+								<p><strong>46%</strong> das pessoas se sentem seguras andando nas ruas do bairro.</p>
+								<h2>Qualidade de vida</h2>
+								<p><strong>23%</strong> das pessoas costumam caminhar pelo bairro.</p>
+								<p><strong>84%</strong> acham que o bairro é bem arborizado.</p>
+								<p><strong>29%</strong> consideram que há muita sujeira nas ruas.</p>
+								<h2>Trânsito</h2>
+								<p>As pessoas demoram em média <strong>45</strong> minutos para chegar ao trabalho</p>
+								<p><strong>57%</strong> acham que o asfalto é bem cuidado no bairro.</p>
+								<h2>Transporte público</h2>
+								<p><strong>12%</strong> das pessoas utilizam transporte público.</p>
+							</div>
+						</section>
 
 					<!-- Three -->
 						<section id="three">
