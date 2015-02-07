@@ -23,6 +23,18 @@
       "css": "star-half-alt",
       "code": 59393,
       "src": "fontawesome"
+    },
+    {
+      "uid": "9937d762aee170b7350b15dd02dd34a3",
+      "css": "cab",
+      "code": 59395,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "b8e88705f42bd79580be828233c65da0",
+      "css": "money",
+      "code": 59396,
+      "src": "linecons"
     }
   ]
 }
