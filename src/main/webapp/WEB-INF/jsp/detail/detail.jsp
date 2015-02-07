@@ -4,7 +4,7 @@ Highlights by HTML5 UP
 html5up.net | @n33co
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html style="background-image: url('images/overlay.png'), url('../images/vila_madalena.jpg');">
+<html style="background-image: url('images/overlay.png'), url('images/vila_madalena.jpg');">
 <head>
     <title>Vila do Chaves</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -16,10 +16,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <script src="js/jquery.scrolly.min.js"></script>
     <script src="js/skel.min.js"></script>
     <script src="js/init.js"></script>
+    <script src="js/jquery.raty.js"></script>
     <noscript>
         <link rel="stylesheet" href="css/skel.css" />
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/style-xlarge.css" />
+        <link rel="stylesheet" href="css/jquery.raty.css" />
     </noscript>
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
@@ -40,13 +42,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <div class="container detail">
         <header class="major">
             <h1>Vila Madalena</h1>
+            <div id="main-rating"></div>
         </header>
-        <%--<ul class="actions">--%>
-            <%--<li><a href="#one" class="button special scrolly">Begin</a></li>--%>
-        <%--</ul>--%>
+	    <div>
+	    	Aqui é curintia
+	    </div>
     </div>
 </section>
-
 
 <%--<section id="footer">--%>
     <%--<footer>--%>
@@ -67,6 +69,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     $(".search-icon").click(function() {
         $("form").submit();
     });
+    $('#main-rating').raty({ path: 'images', readOnly: true, score: 3 });
 </script>
 </body>
 </html>
