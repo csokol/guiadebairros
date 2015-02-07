@@ -73,25 +73,25 @@
                                     <div class="location-name 6u 12u$(xsmall)">
                                         <input type="text" name="name" value="" placeholder="Bairro" />
                                     </div>
-                                    <div class="star-field">
+                                    <div data-name="security" class="star-field">
                                         <label>Segurança</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div class="star-field">
+                                    --><div data-name="publicTransportation" class="star-field">
                                         <label>Transporte público</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div class="star-field">
+                                    --><div data-name="traffic"  class="star-field">
                                         <label>Trânsito</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div class="star-field">
+                                    --><div data-name="" class="star-field">
                                         <label>Lazer</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
@@ -103,7 +103,7 @@
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div class="star-field">
+                                    --><div data-name="costOfLife" class="star-field">
                                         <label>Custo de vida</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
@@ -154,6 +154,13 @@
             star.removeClass("icon-star-empty")
                     .addClass("icon-star");
             star.parent().find("i").off();
+            var stars = star.prevAll()
+                    .filter("i");
+            var l = stars.length;
+            var name = star.parent().data("name");
+            star.parent().append($("<input type='hidden'>")
+                    .attr("value", l+1)
+                    .attr("name", name));
         });
     </script>
 	</body>
