@@ -31,6 +31,18 @@
             #one:before {
                 background-image: url("/images/vila_madalena.jpg");
             }
+            .blurry-text {
+			   color: transparent;
+			   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+			}
+			#bottom {
+			   position:fixed;
+			   left:0px;
+			   bottom:0px;
+			   height:70px;
+			   width:100%;
+			   background: #f44336;
+			}
         </style>
 	</head>
 	<body>
@@ -74,7 +86,7 @@
 										<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
 										<div class="inner">
 											<h4>Juca Chaves</h4>
-											<p>Sempre sou assaltado, mas mesmo assim gosto do lugar.</p>
+											<p class="blurry-text">Sempre sou assaltado, mas mesmo assim gosto do lugar.</p>
 										</div>
 									</article>
 									<article>
@@ -91,20 +103,38 @@
 											<p>EU GOSTO MUITO DESSE LUGAR SOU FELIZ MINHA CASA É LEGAL EU GOSTO DE AÇAI E O GOVERNO NAO AJUDA EBA</p>
 										</div>
 									</article>
+									<article>
+										<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+										<div class="inner">
+											<h4>Senhor barriga</h4>
+											<p>Eu sempre sonhava em morar na Vila, mas depois eu vi que é uma m**** quando tem carnaval ou festa na Vila, pq o bairro fica lotado de gente porca mijando pra tudo qto é lado e fica impossível sair ou entrar no bairro. E nos finais de semana o trânsito também fica horrível. Eu gosto dos bares próximos, mas viver na Vila é f***.</p>
+										</div>
+									</article>
+									<article>
+										<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+										<div class="inner">
+											<h4>Seu Madruga</h4>
+											<p>o ruim de morar na vila é que não dá para ir a pé, já que o bairro tem muito morro. então se voce nao mora perto de um ponto de onibus ou do metro, fica muito ruim para ir para outros lugares. fora isso, o bairro eh show</p>
+										</div>
+									</article>
+									<article>
+										<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+										<div class="inner">
+											<h4>Bruno Diaz</h4>
+											<p>Acho que a Vila Madalena pode melhorar, mas ainda é um dos melhores bairros para morar em São Paulo. Eu acho que o trânsito é OK e eu moro perto do metrô, então consigo ir para todos os lados bem fácil. Acho que para todo mundo que quer morar em algum lugar divertido, a Vila Madalena é a melhor opção. Graças a deus eu nunca sofri assalto, então pelo menos tem isso né </p>
+										</div>
+									</article>
 								</div>
 							</div>
 						</section>
 				</div>
 
 			<!-- Footer -->
-				<section id="footer">
-					<div class="container">
-						<ul class="copyright">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</div>
-				</section>
-
+			<section id="bottom">
+				<div class="container" style="text-align: center; padding: 20px;">
+					<a style="font-size: 30px; color: #fff;">Clique aqui para ver as informações</a>
+				</div>
+			</section>
 		</div>
 	</body>
 
