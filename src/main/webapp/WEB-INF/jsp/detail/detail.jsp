@@ -11,19 +11,27 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="detail/js/jquery.min.js"></script>
-		<script src="detail/js/jquery.scrollzer.min.js"></script>
-		<script src="detail/js/jquery.scrolly.min.js"></script>
-		<script src="detail/js/skel.min.js"></script>
-		<script src="detail/js/skel-layers.min.js"></script>
-		<script src="detail/js/init.js"></script>
-		<script src="detail/js/jquery.raty.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrollzer.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="js/jquery.raty.js"></script>
 		<noscript>
-			<link rel="stylesheet" href="detail/css/skel.css" />
-			<link rel="stylesheet" href="detail/css/style.css" />
-			<link rel="stylesheet" href="detail/css/style-xlarge.css" />
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="detail/css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+        <style>
+            #wrapper {
+                padding: 0;
+            }
+            #one:before {
+                background-image: url("/images/vila_madalena.jpg");
+            }
+        </style>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -477,9 +485,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 		</div>
 	</body>
-	
+
 	<script>
-    $('#main-rating').raty({ path: 'images', readOnly: true, score: 3 });
+//    $('#main-rating').raty({ path: 'images', readOnly: true, score: 3 });
 </script>
 </html>
 

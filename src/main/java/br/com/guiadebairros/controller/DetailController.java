@@ -6,7 +6,7 @@ import br.com.caelum.vraptor.Get;
 @Controller
 public class DetailController {
 
-	@Get("/detail")
+	@Get("/detail/detalhes")
 	public void detail() {
 
 	}
