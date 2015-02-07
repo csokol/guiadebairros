@@ -31,6 +31,7 @@
             }
             #one:before {
                 background-image: url("/images/vila_madalena.jpg");
+                background-position: center;
             }
             <c:if test="${not canRead}">
             .blurry-text {
