@@ -1221,3 +1221,21 @@
 						margin-left: 0;
 						padding-left: 0;
 					}
+					
+					
+.autocomplete-suggestions {
+	background-color: white;
+}
+
+.autocomplete-suggestion {
+	cursor: pointer;
+}
+
+					
+
+.search-icon {
+	background-image: url(/images/search.svg) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+

@@ -14,6 +14,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.scrollex.min.js"></script>
     <script src="js/jquery.scrolly.min.js"></script>
+    <script src="js/jquery.autocomplete.js"></script>
     <script src="js/skel.min.js"></script>
     <script src="js/init.js"></script>
     <noscript>
@@ -46,7 +47,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <div class="container">
         <form action="search" method="post">
             <input type="text" name="q" class="initial-search" placeholder="Encontre seu bairro dos sonhos" />
-            <img class="search-icon" src="/images/search.svg">
+            <input type="button" class="search-icon" src="/images/search.svg">
         </form>
         <%--<ul class="actions">--%>
             <%--<li><a href="#one" class="button special scrolly">Begin</a></li>--%>
@@ -70,10 +71,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <%--</footer>--%>
 <%--</section>--%>
 
-<script>
-    $(".search-icon").click(function() {
-        $("form").submit();
-    });
-</script>
+<script type="text/javascript" src="/js/home.js"></script>
 </body>
 </html>
