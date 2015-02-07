@@ -175,7 +175,7 @@ public class Location {
 	
 	Integer accumulator = 0;
 	for (Evaluation evaluation : this.evaluations) {
-	    accumulator+= (Integer) evaluation.getOpinion().get(Subject.HOW_LONG);
+	    accumulator+= (Integer) evaluation.getOpinion().get(Subject.TIME_TO_WORK);
 	}
 	
 	return Math.round(accumulator/this.evaluations.size());

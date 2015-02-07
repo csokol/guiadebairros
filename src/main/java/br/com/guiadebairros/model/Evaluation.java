@@ -20,7 +20,7 @@ public class Evaluation {
 	IS_QUIET,
 	HAS_TREES,
 	IS_CLEAN,
-	HOW_LONG,
+	TIME_TO_WORK,
 	USE_PUBLIC_TRANSPORTATION,
 	GOOD_ASPHALT
     }

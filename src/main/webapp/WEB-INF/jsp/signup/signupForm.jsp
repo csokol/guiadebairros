@@ -63,7 +63,14 @@
             
             .autocomplete-suggestion {
             	cursor: pointer;
-            }            
+            }
+            
+            input[type="radio"] {
+            }
+            
+            p {
+            	margin: 50px 0 5px 0;
+            }
         </style>
 	</head>
 	<body>
@@ -121,34 +128,60 @@
                                     </div>
                                     
                                     <p>Você se sente seguro andando pelas ruas do bairro?</p>
-                                   	<input type="radio" name="evaluation.opinion[FEEL_SAFE]" value="true">Sim</option>
-                                   	<input type="radio" name="evaluation.opinion[FEEL_SAFE]" value="false">Não</option>
-                                    
+	                                   	<input type="radio" name="opinions[0].value" value="true" checked="checked" />
+										<label for="opinions[0].value">Sim</label>
+										<input type="radio" name="opinions[0].value" value="false" />
+										<label for="opinions[0].value">Não</label>
+										<input type="hidden" name="opinions[0].subject" value="FEEL_SAFE"/>
+									
                                     <p>Você costuma caminhar pelo bairro?</p>
-                                    <input type="radio" name="evaluation.opinion[WALK]" value="true">Sim</option>
-                                   	<input type="radio" name="evaluation.opinion[WALK]" value="false">Não</option>
+	                                   	<input type="radio" name="opinions[1].value" value="true" checked="checked" />
+										<label for="opinions[1].value">Sim</label>
+										<input type="radio" name="opinions[1].value" value="false" />
+										<label for="opinions[1].value">Não</label>
+										<input type="hidden" name="opinions[1].subject" value="WALK"/>
                                     
                                     <p>Você acha o bairro silencioso?</p>
-                                    <input type="radio" name="evaluation.opinion[IS_QUIET]" value="true">Sim</option>
-                                   	<input type="radio" name="evaluation.opinion[IS_QUIET]" value="false">Não</option>
+	                                   	<input type="radio" name="opinions[2].value" value="true" checked="checked" />
+										<label for="opinions[2].value">Sim</label>
+										<input type="radio" name="opinions[2].value" value="false" />
+										<label for="opinions[2].value">Não</label>
+										<input type="hidden" name="opinions[2].subject" value="IS_QUIET"/>
                                     
                                     <p>Seu bairro é arborizado?</p>
-                                    <input type="radio" name="evaluation.opinion[HAS_TREES]" value="true">Sim</option>
-                                   	<input type="radio" name="evaluation.opinion[HAS_TREES]" value="false">Não</option>
+	                                   	<input type="radio" name="opinions[3].value" value="true" checked="checked" />
+										<label for="opinions[3].value">Sim</label>
+										<input type="radio" name="opinions[3].value" value="false" />
+										<label for="opinions[3].value">Não</label>
+										<input type="hidden" name="opinions[3].subject" value="HAS_TREES"/>
                                     
-                                    <p>Quanto tempo você demora de casa até seu trabalho?</p>
-                                    <input type="radio" name="evaluation.opinion[IS_CLEAN]" value="true">Sim</option>
-                                   	<input type="radio" name="evaluation.opinion[IS_CLEAN]" value="false">Não</option>
+                                    <p>Quanto tempo você demora de casa até seu trabalho? (em minutos)</p>
+	                                   	<input type="text" name="opinions[4].intValue" value="" style="width:50px;"/>
+										<input type="hidden" name="opinions[4].subject" value="TIME_TO_WORK"/>
                                     
                                     <p>Você acha o asfalto do seu bairro bem cuidado?</p>
-                                    <input type="radio" name="evaluation.opinion[HOW_LONG]" value="true">Sim</option>
-                                   	<input type="radio" name="evaluation.opinion[HOW_LONG]" value="false">Não</option>
+	                                   	<input type="radio" name="opinions[5].value" value="true" checked="checked" />
+										<label for="opinions[5].value">Sim</label>
+										<input type="radio" name="opinions[5].value" value="false" />
+										<label for="opinions[5].value">Não</label>
+										<input type="hidden" name="opinions[5].subject" value="GOOD_ASPHALT"/>
                                     
                                     <p>Você utiliza o transporte público?</p>
-                                    <input type="radio" name="evaluation.opinion[USE_PUBLIC_TRANSPORTATION]" value="true">Sim</option>
-                                   	<input type="radio" name="evaluation.opinion[USE_PUBLIC_TRANSPORTATION]" value="false">Não</option>
+	                                   	<input type="radio" name="opinions[6].value" value="true" checked="checked" />
+										<label for="opinions[6].value">Sim</label>
+										<input type="radio" name="opinions[6].value" value="false" />
+										<label for="opinions[6].value">Não</label>
+										<input type="hidden" name="opinions[6].subject" value="USE_PUBLIC_TRANSPORTATION"/>
+										
+                                    <p>Você acha as ruas do seu bairro tem muita sujeira?</p>
+	                                   	<input type="radio" name="opinions[7].value" value="true" checked="checked" />
+										<label for="opinions[7].value">Sim</label>
+										<input type="radio" name="opinions[7].value" value="false" />
+										<label for="opinions[7].value">Não</label>
+										<input type="hidden" name="opinions[7].subject" value="IS_CLEAN"/>										
                                     
-                                    <div class="location-name  12u$">
+                                    <br/>
+                                    <div class="location-name  12u$" >
                                         <ul class="actions">
                                             <li><input type="submit" value="Enviar" class="special" /></li>
                                         </ul>
@@ -163,7 +196,7 @@
 				<section id="footer">
 					<div class="container">
 						<ul class="copyright">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy; Atoji/Bronx/Chico/Renato.</li>
 						</ul>
 					</div>
 				</section>

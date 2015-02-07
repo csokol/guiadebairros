@@ -93,7 +93,7 @@
 								<h2>Qualidade de vida</h2>
 								<p><strong>${location.walkRate}%</strong> das pessoas costumam caminhar pelo bairro.</p>
 								<p><strong>${location.hasTreesRate}%</strong> acham que o bairro é bem arborizado.</p>
-								<p><strong>${location.IsCleanRate}%</strong> consideram que há muita sujeira nas ruas.</p>
+								<p><strong>${location.isCleanRate}%</strong> consideram que há muita sujeira nas ruas.</p>
 								<h2>Trânsito</h2>
 								<p>As pessoas demoram em média <strong>${location.avgTimeToWork}</strong> minutos para chegar ao trabalho</p>
 								<p><strong>${location.goodAsphaltRate}%</strong> acham que o asfalto é bem cuidado no bairro.</p>

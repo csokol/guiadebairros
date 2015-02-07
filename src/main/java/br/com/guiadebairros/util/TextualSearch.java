@@ -8,7 +8,7 @@ public class TextualSearch {
 	public String prepareForSearch(String text) {
 		return text == null ? null
 				: Normalizer.normalize(text, Form.NFD)
-				.replaceAll("\\p{InCombiningDiacriticalMarks}+", "").toLowerCase();
+				.replaceAll("\\p{InCombiningDiacriticalMarks}+", "").toLowerCase().trim();
 	}
 	
 }

@@ -4,7 +4,9 @@ import static br.com.caelum.vraptor.view.Results.http;
 import static br.com.caelum.vraptor.view.Results.json;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
@@ -19,9 +21,12 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.guiadebairros.model.Evaluation;
+import br.com.guiadebairros.model.Evaluation.Subject;
 import br.com.guiadebairros.model.Location;
 import br.com.guiadebairros.model.repository.fake.Locations;
+import br.com.guiadebairros.resource.Opinion;
 import br.com.guiadebairros.service.LocationService;
+import br.com.guiadebairros.util.TextualSearch;
 
 @Controller
 @Path("/location")
@@ -31,6 +36,7 @@ public class LocationController {
 	private LocationService locationService;
 	private HttpSession session;
 	private MongoTemplate template;
+	private TextualSearch textualSearch;
 
 	/**
 	 * @deprecated
@@ -39,11 +45,13 @@ public class LocationController {
 	public LocationController() {}
 	
 	@Inject
-	public LocationController(Result result, LocationService locationService, HttpSession session, MongoTemplate template) {
+	public LocationController(Result result, LocationService locationService, HttpSession session,
+		MongoTemplate template, TextualSearch textualSearch) {
 		this.result = result;
 		this.locationService = locationService;
 		this.session = session;
 		this.template = template;
+		this.textualSearch = textualSearch;
 	}
 
 	@Get("/autocomplete")
@@ -51,7 +59,7 @@ public class LocationController {
 		if (query != null && !query.trim().isEmpty()) {
 			this.result.use(json())
 				.withoutRoot()
-				.from(this.locationService.autoCompleteLocations(query.trim(), maxResults))
+				.from(this.locationService.autoCompleteLocations(this.textualSearch.prepareForSearch(query), maxResults))
 				.serialize();
 		} else {
 			this.result.use(http()).sendError(400);
@@ -85,10 +93,34 @@ public class LocationController {
 	
 	
 	@Post("/evaluate/{id}")
-	public void add(String id, Evaluation evaluation) {
+	public void add(String id, Evaluation evaluation, List<Opinion> opinions) {
+	    evaluation.setOpinion(this.assembleOpinionMap(opinions));
 	    this.locationService.add(id, evaluation);
 	    this.session.setAttribute("canRead", true);
 	    this.result.redirectTo(DetailController.class).detail((String)this.session.getAttribute("desiredLocationId"));
+	}
+	
+	@Get("/clean")
+	public void clean() {
+	    this.session.invalidate();
+	    this.result.nothing();
+	}	
+
+	private Map<Subject, Object> assembleOpinionMap(List<Opinion> opinions) {
+	    
+	    Map<Subject, Object> opinionMap = new HashMap<>();
+	    
+	    for (Opinion opinion: opinions) {
+		Object value = null;
+		if (opinion.getSubject().equals(Subject.TIME_TO_WORK)) {
+		    value = opinion.getIntValue();			
+		} else {
+		    value = opinion.getValue();
+		}
+		opinionMap.put(opinion.getSubject(), value);
+	    }
+	    
+	    return opinionMap;
 	}
     
 }
