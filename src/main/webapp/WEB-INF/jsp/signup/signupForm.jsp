@@ -44,6 +44,16 @@
                 width: 50%;
                 padding-left: 3em;
             }
+            .location-name {
+                padding-left: 3em;
+                margin: 1em 0;
+            }
+            .icon-star-empty {
+                color: #d7d7d7;
+            }
+            .star-field i {
+                cursor: pointer;
+            }
         </style>
 	</head>
 	<body>
@@ -58,8 +68,11 @@
 								<header class="major">
 									<h2>Avalie o seu bairro</h2>
 								</header>
-                                <h3>Para ver o conteúdo completo, avalie a qualidade do bairro em que mora.</h3>
+
                                 <form class="stars-form" method="post" action="#">
+                                    <div class="location-name 6u 12u$(xsmall)">
+                                        <input type="text" name="name" value="" placeholder="Bairro" />
+                                    </div>
                                     <div class="star-field">
                                         <label>Segurança</label>
                                         <c:forEach begin="1" end="5">
@@ -112,6 +125,37 @@
 				</section>
 
 		</div>
+
+    <script>
+        var leave = $(".icon-star-empty").mouseenter(function() {
+            var star = $(this);
+            star.prevAll()
+                .filter("i")
+                .removeClass("icon-star-empty")
+                .addClass("icon-star");
+            star.removeClass("icon-star-empty")
+                .addClass("icon-star");
+        }).mouseleave(function() {
+            var star = $(this);
+            star.prevAll()
+                .filter("i")
+                .removeClass("icon-star")
+                .addClass("icon-star-empty");
+            star.removeClass("icon-star")
+                .addClass("icon-star-empty");
+        });
+
+        $(".icon-star-empty").click(function() {
+            var star = $(this);
+            star.prevAll()
+                    .filter("i")
+                    .removeClass("icon-star-empty")
+                    .addClass("icon-star");
+            star.removeClass("icon-star-empty")
+                    .addClass("icon-star");
+            star.parent().find("i").off();
+        });
+    </script>
 	</body>
 
 </html>
