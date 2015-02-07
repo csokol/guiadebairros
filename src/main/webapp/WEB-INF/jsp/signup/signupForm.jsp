@@ -20,6 +20,7 @@
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
 		<script src="/js/jquery.raty.js"></script>
+		<script src="/js/jquery.autocomplete.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -54,6 +55,15 @@
             .star-field i {
                 cursor: pointer;
             }
+            
+            .autocomplete-suggestions {
+            	background-color: #fff;
+            	border: solid 1px;
+            }
+            
+            .autocomplete-suggestion {
+            	cursor: pointer;
+            }            
         </style>
 	</head>
 	<body>
@@ -69,41 +79,41 @@
 									<h2>Avalie o seu bairro</h2>
 								</header>
 
-                                <form class="stars-form" method="post" action="#">
-                                    <div class="location-name 6u 12u$(xsmall)">
-                                        <input type="text" name="name" value="" placeholder="Bairro" />
+                                <form class="stars-form" method="post" action="/">
+                                    <div id="xablau" class="location-name 6u 12u$(xsmall) ">
+                                        <input class="initial-search" type="text" name="name" value="" placeholder="Bairro" />
                                     </div>
-                                    <div data-name="security" class="star-field">
+                                    <div data-name="securityScore" class="star-field">
                                         <label>Segurança</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div data-name="publicTransportation" class="star-field">
+                                    --><div data-name="publicTransportationScore" class="star-field">
                                         <label>Transporte público</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div data-name="traffic"  class="star-field">
+                                    --><div data-name="trafficScore"  class="star-field">
                                         <label>Trânsito</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div data-name="" class="star-field">
+                                    --><div data-name="amusementScore" class="star-field">
                                         <label>Lazer</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div class="star-field">
+                                    --><div data-name="amenitiesScore" class="star-field">
                                         <label>Conveniência</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div data-name="costOfLife" class="star-field">
+                                    --><div data-name="costOfLifeScore" class="star-field">
                                         <label>Custo de vida</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
@@ -168,6 +178,7 @@
                     .attr("name", name));
         });
     </script>
+    <script src="/js/signup.js"></script>
 	</body>
 
 </html>
