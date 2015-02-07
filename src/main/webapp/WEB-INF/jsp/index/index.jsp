@@ -23,6 +23,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </noscript>
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+    <style>
+        .search-icon {
+            display: inline-block;
+            height: 3em;
+            vertical-align: middle;
+        }
+        input[type="text"].initial-search {
+            display: inline-block;
+            width: 85%;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
 
@@ -34,6 +46,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <div class="container">
         <form action="search" method="post">
             <input type="text" name="q" class="initial-search" placeholder="Encontre seu bairro dos sonhos" />
+            <img class="search-icon" src="/images/search.svg">
         </form>
         <%--<ul class="actions">--%>
             <%--<li><a href="#one" class="button special scrolly">Begin</a></li>--%>
@@ -57,5 +70,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </footer>
 </section>
 
+<script>
+    $(".search-icon").click(function() {
+        $("form").submit();
+    });
+</script>
 </body>
 </html>
