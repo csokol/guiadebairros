@@ -45,7 +45,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <h1>Vila do Chaves</h1>
     </header>
     <div class="container">
-        <form action="search" method="post">
+        <form id="search-form" action="search" method="post">
             <input type="text" name="q" class="initial-search" placeholder="Encontre seu bairro dos sonhos" />
             <input type="button" class="search-icon" src="/images/search.svg">
         </form>

@@ -28,4 +28,11 @@ $(".search-icon").click(function() {
 		}
 	}); 
 	
+	$('#search-form').on('submit', function(ev) {
+		ev.preventDefault();
+        if (typeof(selectedLocation) !== 'undefined') {
+        	window.location.href= '/detail/' + selectedLocation.url;
+        }
+	});
+	
 	

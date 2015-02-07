@@ -95,7 +95,7 @@
 					<!-- Two -->
 						<section id="two"  class="blurry-text">
 							<div class="container">
-								<h3>Como vai a quebrada?</h3>
+								<h3>O que pensam deste bairro?</h3>
 								<ul class="feature-icons">
 									<li>
                                         Segurança
@@ -180,7 +180,14 @@
 			<section id="bottom">
 				<div class="container" style="text-align: center; padding: 20px;">
 					<c:if test="${not canRead}">
-					<a href="/detail/signup" style="font-size: 30px; color: #fff;">Avalie um bairro para poder visualizar as informações deste!</a>
+					
+						<c:if test="${not empty location.evaluations}">
+							<a href="/detail/signup" style="font-size: 30px; color: #fff;">Avalie um bairro para poder visualizar as informações deste!</a>
+						</c:if>
+						
+						<c:if test="${empty location.evaluations}">
+							<a href="/detail/signup" style="font-size: 30px; color: #fff;">Este bairro não possui avaliações. Avalie um bairro que você conheça! =D</a>
+						</c:if>
 					</c:if>
 					<c:if test="${canRead}">
 					<a href="/detail/signup" style="font-size: 30px; color: #fff;">Avalie outro bairro! =)</a>
