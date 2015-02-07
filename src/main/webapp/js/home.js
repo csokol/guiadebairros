@@ -2,7 +2,7 @@ var selectedLocation;
 
 $(".search-icon").click(function() {
         if (typeof(selectedLocation) !== 'undefined') {
-        	window.location.href= '/detail/' + selectedLocation.url + '/';
+        	window.location.href= '/detail/' + selectedLocation.url;
         }
     });
     

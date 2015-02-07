@@ -100,7 +100,8 @@ public class LocationController {
 	    comment.setLocationId(id);
 	    this.template.save(comment);
 	    this.session.setAttribute("canRead", true);
-	    this.result.redirectTo(DetailController.class).detail((String)this.session.getAttribute("desiredLocationUrl"));
+		String desiredLocationUrl = (String) this.session.getAttribute("desiredLocationUrl");
+		this.result.redirectTo(DetailController.class).detail(desiredLocationUrl);
 	}
 	
 	@Get("/clean")

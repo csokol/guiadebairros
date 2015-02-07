@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import br.com.caelum.vraptor.Path;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import br.com.caelum.vraptor.Controller;
@@ -21,7 +22,8 @@ public class DetailController {
     @Inject private LocationService service;
     @Inject private MongoTemplate template;
 
-    @Get("/detail/{url}/")
+	@Path(value="/detail/{url}", priority = Path.LOWEST)
+    @Get()
     public void detail(String url) {
 	this.result.include("location", service.getByUrl(url));
 	session.setAttribute("desiredLocationUrl", url);
