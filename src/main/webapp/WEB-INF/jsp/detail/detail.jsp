@@ -62,7 +62,7 @@
 						<section id="one">
 							<div class="container">
 								<header class="major">
-									<h2>Vila Madalena</h2>
+									<h2>${location.name}</h2>
 								</header>
 								<p id="main-rating"></p>
 								<p>Famosa por seus bares, restaurantes, além da sua vida cultural agitada, a Vila Madalena tem na proximidade com a Avenida Paulista e com a Universidade de São Paulo (USP) todo o potencial de atrair jovens e pessoas que preferem morar perto de onde trabalham ou estudam. De modo geral quem mora aqui não pensa em se mudar. </p>

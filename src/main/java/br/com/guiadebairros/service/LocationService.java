@@ -11,4 +11,6 @@ public interface LocationService {
     
     void add(String id, Evaluation evaluation);
     
+    Location get(String id);
+    
 }

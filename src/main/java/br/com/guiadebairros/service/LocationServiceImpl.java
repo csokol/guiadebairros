@@ -33,4 +33,10 @@ public class LocationServiceImpl implements LocationService {
 	this.repository.add(id, evaluation);
     }
 
+
+    @Override
+    public Location get(String id) {
+	return this.repository.get(id);
+    }
+
 }
