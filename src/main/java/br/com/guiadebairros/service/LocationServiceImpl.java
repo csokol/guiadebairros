@@ -39,4 +39,9 @@ public class LocationServiceImpl implements LocationService {
 	return this.repository.get(id);
     }
 
+    @Override
+    public Set<Location> getAll() {
+	return this.repository.getAll();
+    }
+
 }

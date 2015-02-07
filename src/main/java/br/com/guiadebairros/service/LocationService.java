@@ -13,4 +13,6 @@ public interface LocationService {
     
     Location get(String id);
     
+    Set<Location> getAll();
+    
 }

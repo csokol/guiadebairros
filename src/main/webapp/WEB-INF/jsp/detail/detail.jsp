@@ -7,7 +7,7 @@
 -->
 <html>
 	<head>
-		<title>Read Only by HTML5 UP</title>
+		<title>Avaliação - ${location.name}</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -32,7 +32,7 @@
             #one:before {
                 background-image: url("/images/vila_madalena.jpg");
             }
-            <c:if test="true">
+            <c:if test="${not canRead}">
             .blurry-text {
 			   color: transparent;
 			   text-shadow: 0 0 5px rgba(0,0,0,0.5);
@@ -65,10 +65,11 @@
 									<h2>${location.name}</h2>
 								</header>
 								<p id="main-rating"></p>
-								<p>Famosa por seus bares, restaurantes, além da sua vida cultural agitada, a Vila Madalena tem na proximidade com a Avenida Paulista e com a Universidade de São Paulo (USP) todo o potencial de atrair jovens e pessoas que preferem morar perto de onde trabalham ou estudam. De modo geral quem mora aqui não pensa em se mudar. </p>
+								<p>${location.description}</p>
 							</div>
 						</section>
 
+					<c:if test="${canRead}">
 					<!-- Two -->
 						<section id="two">
 							<div class="container">
@@ -150,27 +151,33 @@
 								</div>
 							</div>
 						</section>
+						</c:if>
 				</div>
 
 			<!-- Footer -->
 			<section id="bottom">
 				<div class="container" style="text-align: center; padding: 20px;">
-					<a href="/detail/signup" style="font-size: 30px; color: #fff;">Clique aqui para ver as informações</a>
+					<c:if test="${not canRead}">
+					<a href="/detail/signup" style="font-size: 30px; color: #fff;">Avalie um bairro para poder visualizar as informações deste!</a>
+					</c:if>
+					<c:if test="${canRead}">
+					<a href="/detail/signup" style="font-size: 30px; color: #fff;">Avalie um bairro!</a>
+					</c:if>					
 				</div>
 			</section>
 		</div>
 	</body>
 
 	<script>
-    $('#main-rating').raty({ path: '/images', readOnly: true, score: 3 });
-    $('#stars-security').raty({ path: '/images', readOnly: true, score: 4 });
-    $('#stars-transport').raty({ path: '/images', readOnly: true, score: 4 });
-    $('#stars-traffic').raty({ path: '/images', readOnly: true, score: 4 });
-    $('#stars-fun').raty({ path: '/images', readOnly: true, score: 4 });
-    $('#stars-convenience').raty({ path: '/images', readOnly: true, score: 4 });
-    $('#stars-cost').raty({ path: '/images', readOnly: true, score: 4 });
+    $('#main-rating').raty({ path: '/images', readOnly: true, score: ${location.overallScore} });
+    $('#stars-security').raty({ path: '/images', readOnly: true, score: ${location.securityScore} });
+    $('#stars-transport').raty({ path: '/images', readOnly: true, score: ${location.publicTransportationScore} });
+    $('#stars-traffic').raty({ path: '/images', readOnly: true, score: ${location.trafficScore} });
+    $('#stars-fun').raty({ path: '/images', readOnly: true, score: ${location.amusementScore} });
+    $('#stars-convenience').raty({ path: '/images', readOnly: true, score: ${location.amenitiesScore} });
+    $('#stars-cost').raty({ path: '/images', readOnly: true, score: ${location.costOfLifeScore} });
     
-    <c:if test="true">
+    <c:if test="${not canRead}">
 	    $('#stars-security').raty({ path: '/images', readOnly: true, score: 5 });
 	    $('#stars-transport').raty({ path: '/images', readOnly: true, score: 5 });
 	    $('#stars-traffic').raty({ path: '/images', readOnly: true, score: 5 });

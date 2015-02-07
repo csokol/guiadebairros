@@ -52,6 +52,26 @@ public class Evaluation {
 	this.amusementScore = amusementScore;
     }
     
+    //Tosco
+    public Integer getOverall() {
+	
+	Integer accumulator = 0;
+	
+	accumulator += neverNull(securityScore);            
+	accumulator += neverNull(publicTransportationScore);
+	accumulator += neverNull(amenitiesScore);           
+	accumulator += neverNull(amusementScore);           
+	accumulator += neverNull(trafficScore);             
+	accumulator += neverNull(costOfLifeScore);
+	
+	if (accumulator.equals(0)) return 0;
+	
+	return Math.round(accumulator / 6); 
+		
+    }
     
+    public Integer neverNull(Integer val) {
+	return val != null ? val : 0;
+    }
     
 }

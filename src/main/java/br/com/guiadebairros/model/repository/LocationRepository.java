@@ -40,4 +40,8 @@ public class LocationRepository {
     public void add(String id, Evaluation evaluation) {
 	this.template.updateFirst(new Query(where("_id").is(id)), new Update().push("evaluations", evaluation), Location.class);
     }
+    
+    public Set<Location> getAll() {
+	return new HashSet<>(this.template.findAll(Location.class));
+    }
 }
