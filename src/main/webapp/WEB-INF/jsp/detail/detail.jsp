@@ -4,7 +4,7 @@ Highlights by HTML5 UP
 html5up.net | @n33co
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html style="background-image: url('images/overlay.png'), url('../images/vila_madalena.jpg');">
 <head>
     <title>Vila do Chaves</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -24,15 +24,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
     <style>
-        .search-icon {
-            display: inline-block;
-            height: 3em;
-            vertical-align: middle;
-        }
-        input[type="text"].initial-search {
-            display: inline-block;
-            width: 85%;
-            vertical-align: middle;
+        #header .container.detail {
+            width: 80%;
+            left: 0;
+            margin: 0 auto;
+            position: relative;
+            top: 60%;
         }
     </style>
 </head>
@@ -40,14 +37,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 <!-- Header -->
 <section id="header">
-    <header class="major">
-        <h1>Vila do Chaves</h1>
-    </header>
-    <div class="container">
-        <form action="search" method="post">
-            <input type="text" name="q" class="initial-search" placeholder="Encontre seu bairro dos sonhos" />
-            <img class="search-icon" src="/images/search.svg">
-        </form>
+    <div class="container detail">
+        <header class="major">
+            <h1>Vila Madalena</h1>
+        </header>
         <%--<ul class="actions">--%>
             <%--<li><a href="#one" class="button special scrolly">Begin</a></li>--%>
         <%--</ul>--%>
