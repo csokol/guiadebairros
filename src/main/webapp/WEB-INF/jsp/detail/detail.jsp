@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib tagdir="/WEB-INF/tags" prefix="tags" %>
 <!DOCTYPE HTML>
 <!--
 	Read Only by HTML5 UP
@@ -25,6 +26,7 @@
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+        <link rel="stylesheet" href="/fontello/css/fontello.css">
         <style>
             #wrapper {
                 padding: 0;
@@ -34,23 +36,43 @@
                 background-position: center;
             }
             <c:if test="${not canRead}">
-            .blurry-text {
+            .blurry-text, .blurry-text p {
 			   color: transparent;
-			   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+			   text-shadow: 0 0 8px rgba(0,0,0,0.5);
 			}
-			
+
 			.star-blur {
 				filter: blur(3px);
 			}
+
+            strong {
+                color: transparent;
+            }
+            .feature-icons li {
+                color: #888;
+                text-shadow: 0 0 0px;
+            }
+            .feature-icons div {
+                color: transparent;
+                text-shadow: 0 0 8px rgba(0,0,0,0.5);
+            }
 			</c:if>
 			#bottom {
 			   position:fixed;
 			   left:0px;
 			   bottom:0px;
-			   height:70px;
 			   width:100%;
 			   background: #f44336;
 			}
+            .low-score {
+                color: #f44336;
+            }
+            .high-score {
+                color: #67f47c;
+            }
+            .regular-score {
+                color: #D0D051;
+            }
         </style>
 	</head>
 	<body>
@@ -65,28 +87,57 @@
 								<header class="major">
 									<h2>${location.name}</h2>
 								</header>
-								<p id="main-rating"></p>
+                                <tags:stars canRead="true" score="${location.overallScore}"/>
 								<p>${location.description}</p>
 							</div>
 						</section>
 
-					<c:if test="${canRead}">
 					<!-- Two -->
-						<section id="two">
+						<section id="two"  class="blurry-text">
 							<div class="container">
 								<h3>Como vai a quebrada?</h3>
 								<ul class="feature-icons">
-									<li>Segurança <div id="stars-security" class="star-blur"></div></li>
-									<li>Transporte público <div id="stars-transport" class="star-blur"></div></li>
-									<li>Trânsito <div id="stars-traffic" class="star-blur"></div></li>
-									<li>Lazer <div id="stars-fun" class="star-blur"></div></li>
-									<li>Conveniência <div id="stars-convenience" class="star-blur"></div></li>
-									<li>Custo de vida <div id="stars-cost" class="star-blur"></div></li>
+									<li>
+                                        Segurança
+                                        <div id="stars-security" class="star-blur">
+                                            <tags:stars score="${location.securityScore}"/>
+                                        </div>
+                                    </li>
+									<li>
+                                        Transporte público
+                                        <div id="stars-transport" class="star-blur">
+                                            <tags:stars score="${location.publicTransportationScore}"/>
+                                        </div>
+                                    </li>
+									<li>
+                                        Trânsito
+                                        <div id="stars-traffic" class="star-blur">
+                                            <tags:stars score="${location.trafficScore}"/>
+                                        </div>
+                                    </li>
+									<li>
+                                        Lazer
+                                        <div id="stars-fun" class="star-blur">
+                                            <tags:stars score="${location.amusementScore}"/>
+                                        </div>
+                                    </li>
+									<li>
+                                        Conveniência
+                                        <div id="stars-convenience" class="star-blur">
+                                            <tags:stars score="${location.amenitiesScore}"/>
+                                        </div>
+                                    </li>
+									<li>
+                                        Custo de vida
+                                        <div id="stars-cost" class="star-blur">
+                                            <tags:stars score="${location.costOfLifeScore}"/>
+                                        </div>
+                                    </li>
 								</ul>
 							</div>
 						</section>
 						
-						<section id="four">
+						<section  class="blurry-text" id="four">
 							<div class="container">
 								<h2>Segurança</h2>
 								<p><strong>46%</strong> das pessoas se sentem seguras andando nas ruas do bairro.</p>
@@ -103,7 +154,7 @@
 						</section>
 
 					<!-- Three -->
-						<section id="three">
+						<section  class="blurry-text" id="three">
 							<div class="container">
 								<h3>O que os truta axa?</h3>
 								<div class="features">
@@ -152,7 +203,6 @@
 								</div>
 							</div>
 						</section>
-						</c:if>
 				</div>
 
 			<!-- Footer -->
@@ -170,21 +220,21 @@
 	</body>
 
 	<script>
-    $('#main-rating').raty({ path: '/images', readOnly: true, score: ${location.overallScore} });
-    $('#stars-security').raty({ path: '/images', readOnly: true, score: ${location.securityScore} });
-    $('#stars-transport').raty({ path: '/images', readOnly: true, score: ${location.publicTransportationScore} });
-    $('#stars-traffic').raty({ path: '/images', readOnly: true, score: ${location.trafficScore} });
-    $('#stars-fun').raty({ path: '/images', readOnly: true, score: ${location.amusementScore} });
-    $('#stars-convenience').raty({ path: '/images', readOnly: true, score: ${location.amenitiesScore} });
-    $('#stars-cost').raty({ path: '/images', readOnly: true, score: ${location.costOfLifeScore} });
+    <%--$('#main-rating').raty({ path: '/images', readOnly: true, score: ${location.overallScore} });--%>
+    <%--$('#stars-security').raty({ path: '/images', readOnly: true, score: ${location.securityScore} });--%>
+    <%--$('#stars-transport').raty({ path: '/images', readOnly: true, score: ${location.publicTransportationScore} });--%>
+    <%--$('#stars-traffic').raty({ path: '/images', readOnly: true, score: ${location.trafficScore} });--%>
+    <%--$('#stars-fun').raty({ path: '/images', readOnly: true, score: ${location.amusementScore} });--%>
+    <%--$('#stars-convenience').raty({ path: '/images', readOnly: true, score: ${location.amenitiesScore} });--%>
+    <%--$('#stars-cost').raty({ path: '/images', readOnly: true, score: ${location.costOfLifeScore} });--%>
     
     <c:if test="${not canRead}">
-	    $('#stars-security').raty({ path: '/images', readOnly: true, score: 5 });
-	    $('#stars-transport').raty({ path: '/images', readOnly: true, score: 5 });
-	    $('#stars-traffic').raty({ path: '/images', readOnly: true, score: 5 });
-	    $('#stars-fun').raty({ path: '/images', readOnly: true, score: 5 });
-	    $('#stars-convenience').raty({ path: '/images', readOnly: true, score: 5 });
-	    $('#stars-cost').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-security').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-transport').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-traffic').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-fun').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-convenience').raty({ path: '/images', readOnly: true, score: 5 });
+//	    $('#stars-cost').raty({ path: '/images', readOnly: true, score: 5 });
 	</c:if>	    
 </script>
 </html>
