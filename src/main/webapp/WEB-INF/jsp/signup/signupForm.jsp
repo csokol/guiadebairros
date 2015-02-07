@@ -83,37 +83,37 @@
                                     <div id="xablau" class="location-name 6u 12u$(xsmall) ">
                                         <input class="initial-search" type="text" name="name" value="" placeholder="Bairro" />
                                     </div>
-                                    <div data-name="securityScore" class="star-field">
+                                    <div data-name="evaluation.securityScore" class="star-field">
                                         <label>Segurança</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div data-name="publicTransportationScore" class="star-field">
+                                    --><div data-name="evaluation.publicTransportationScore" class="star-field">
                                         <label>Transporte público</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div data-name="trafficScore"  class="star-field">
+                                    --><div data-name="evaluation.trafficScore"  class="star-field">
                                         <label>Trânsito</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div data-name="amusementScore" class="star-field">
+                                    --><div data-name="evaluation.amusementScore" class="star-field">
                                         <label>Lazer</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div data-name="amenitiesScore" class="star-field">
+                                    --><div data-name="evaluation.amenitiesScore" class="star-field">
                                         <label>Conveniência</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>
                                         </c:forEach>
                                     </div><!--
-                                    --><div data-name="costOfLifeScore" class="star-field">
+                                    --><div data-name="evaluation.costOfLifeScore" class="star-field">
                                         <label>Custo de vida</label>
                                         <c:forEach begin="1" end="5">
                                             <i class="icon-star-empty"></i>

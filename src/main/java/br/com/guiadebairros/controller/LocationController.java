@@ -54,7 +54,7 @@ public class LocationController {
 	    this.result.nothing();
 	}
 	
-	@Post("/evalutate/{id}")
+	@Post("/evaluate/{id}")
 	public void add(String id, Evaluation evaluation) {
 	    this.locationService.add(id, evaluation);
 	    this.result.redirectTo(DetailController.class).detail((String)this.session.getAttribute("desiredLocationId"));
