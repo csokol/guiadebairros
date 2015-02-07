@@ -15,10 +15,18 @@ public class Location {
     private String name;
     private String description;
     private Set<String> searchableNames = new HashSet<>();
+	private String imagePath = "/images/vila_madalena.jpg";
     
     private List<Evaluation> evaluations;
-    
-    private enum Feature {
+
+	public void setImagePath() {
+		this.imagePath = "/images/" + name.replace(" ", "_")
+				.replace("ã", "a")
+				.replace("ú", "u")
+				.toLowerCase() + ".jpg";
+	}
+
+	private enum Feature {
 	SECURITY,
 	PUBLIC_TRANSPORTATION,
         AMENITIES,
@@ -133,6 +141,8 @@ public class Location {
 	
 	return Math.round(accumulator / evaluations.size());
     }
-    
-    
+
+	public String getImagePath() {
+		return imagePath;
+	}
 }

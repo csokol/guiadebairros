@@ -30,7 +30,7 @@
                 padding: 0;
             }
             #one:before {
-                background-image: url("/images/vila_madalena.jpg");
+                background-image: url("${location.imagePath}");
                 background-position: center;
             }
             <c:if test="${not canRead}">

@@ -38,14 +38,15 @@ public class Locations extends HashSet<Location> {
 
 
     private Location createLocation(String name) {
-	Location location = new Location();
-	location.setName(name);
-	
-	location.getSearchableNames().add(this.textualSearch.prepareForSearch(name));
-	
-	this.template.save(location);
-	
-	return location;
+		Location location = new Location();
+		location.setName(name);
+		location.setImagePath();
+
+		location.getSearchableNames().add(this.textualSearch.prepareForSearch(name));
+
+		this.template.save(location);
+
+		return location;
     }
     
     public Set<Location> filterByQuery(String query, Integer maxResults) {
